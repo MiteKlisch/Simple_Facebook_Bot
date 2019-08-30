@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const verifyWebhook = require('./verify-webhook');
+app.get('/', verifyWebhook);
+
 const app = express();
 
 app.use(bodyParser.json());
