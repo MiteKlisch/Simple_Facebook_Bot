@@ -60,7 +60,7 @@ module.exports = (event) => {
   sessionClient
     .detectIntent(request)
     .then(responses => {
-      const result = responses[0].queryResult;
+      const result = responses[0] && responses[0].queryResult;
       return sendTextMessage(userId, result.fulfillmentText);
     })
     .catch(err => {
